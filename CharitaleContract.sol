@@ -64,6 +64,6 @@ contract KarmaGateway
   	}
   	
   	function getCharityBalance() public view returns (uint256) {
-        return address(this).balance;
+            return address(this).balance;
   	}
 }   
