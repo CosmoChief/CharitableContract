@@ -47,25 +47,19 @@ contract KarmaGateway
     
     function claimCharityDonationsToAddress(address payable _to, uint256 _amount) public onlyOwner {
         require(_amount <= address(this).balance, "Not enough balance");
-        
         _to.transfer(_amount);
-        
         emit withdraw(_to, _amount, block.timestamp);
   	}
   	
   	function claimCharityDonations() public onlyOwner {
   	    require(address(this).balance > 0, "Not enough balance");
-  	    
         owner.transfer(address(this).balance);
-        
         emit withdraw(owner, address(this).balance, block.timestamp);
   	}
   	
   	function claimCharityDonationsAmount(uint256 _amount) public onlyOwner {
   	    require(_amount <= address(this).balance, "Not enough balance");
-  	    
         owner.transfer(_amount);
-        
         emit withdraw(owner, _amount, block.timestamp);
   	}
   	
